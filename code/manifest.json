@@ -1,0 +1,9 @@
+{
+  "name": "Date Writer",
+  "manifest_version": 2,
+  "version": "1.0",
+  "browser_action": {
+    "default_title": "DateWriter",
+    "default_popup": "popup.html"
+  }
+}
