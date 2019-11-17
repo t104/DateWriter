@@ -1,7 +1,7 @@
 {
   "name": "Date Writer",
   "manifest_version": 2,
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "short_name": "DateWriter",
   "description": "日付のフォーマットを整えて入力するツールです",
   "icons" : {
@@ -11,8 +11,9 @@
   },
   "browser_action": {
     "default_icon" : {
-      "19" : "icon/icon19.png",
-      "38" : "icon/icon38.png"
+      "16" : "icon/icon16.png",
+      "24" : "icon/icon24.png",
+      "32" : "icon/icon32.png"
     },
     "default_title": "DateWriter",
     "default_popup": "popup.html"
