@@ -1,28 +1,24 @@
-$("#inputDate").on("input", () => {
-  CopyDateToClipboard();
-});
+const getInputDate = () => document.getElementById("inputDate");
+const getDateFormat = () => document.getElementById("dateFormat");
+const getDisplayDate = () => document.getElementById("displayDate");
 
-$(() => {
-  $("#dateFormat").change(() => {
-    CopyDateToClipboard();
-  });
-})
+const formatDate = (date, format) => {
+  moment.locale("ja");
+  const momDate = moment(date);
+  return momDate.format(format);
+};
 
 // Format Date and Copy it to Clipboard
-function CopyDateToClipboard() {
-  // Get date and format
-  const strDate = $("#inputDate").val();
-  const format = $("#dateFormat").val();
-
-  // Format date and display
-  $("#displayDate").val(FormatDate(strDate, format));
+const onUpdate = () => {
+  const inputDate = getInputDate().value;
+  const dateFormat = getDateFormat().value;
+  const formattedDate = formatDate(inputDate, dateFormat);
+  getDisplayDate().value = formattedDate;
   if (navigator.clipboard) {
-    navigator.clipboard.writeText($("#displayDate").val());
+    navigator.clipboard.writeText(formattedDate);
   }
-}
+};
 
-function FormatDate(date, format) {
-  moment.locale("ja");
-  var momDate = moment(date);
-  return momDate.format(format);
-}
+// Add Event Listener
+getInputDate().addEventListener("input", onUpdate);
+getDateFormat().addEventListener("input", onUpdate);
